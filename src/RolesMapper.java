@@ -10,7 +10,6 @@ public class RolesMapper extends  Mapper<LongWritable, Text, Text, Text> {
 		
 		//Adding tag "role" to value so that each mapper has distinguishable values.
 		String role = "role" + "\t" + columns[0] + "\t" + columns[3];
-		//Fetching first two columns
 		context.write(new Text(columns[2]), new Text(role));
 		
 		// Output Format

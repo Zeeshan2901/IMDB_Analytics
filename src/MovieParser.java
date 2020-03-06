@@ -2,14 +2,14 @@ public class MovieParser {
 
 	private String id;
 	private String title;
-	private int releaseYear;
+	private String releaseYear;
 	private String Genre;
 
 	public MovieParser parse (String line){
 		String [] columns = line.toString().split("\t");
 		setId(columns[0]);
 		setTitle(columns[1]);
-		setreleaseYear(Integer.parseInt(columns[2]));
+		setreleaseYear(columns[2]);
 		setGenre(columns[3]);
 		return this;
 	}
@@ -34,7 +34,7 @@ public class MovieParser {
 		this.title =t;
 	}
 	
-	public void setreleaseYear (int x){
+	public void setreleaseYear (String x){
 		this.releaseYear=x;
 	}
 	
@@ -51,7 +51,7 @@ public class MovieParser {
 		return title;
 	}
 	
-	public int getreleaseYear(){
+	public String getreleaseYear(){
 		return releaseYear;
 	}
 	

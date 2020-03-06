@@ -36,7 +36,7 @@ public class Program2_JobRunner extends Configured implements Tool {
 		job.setReducerClass(Program2_Reducer.class);
 		job.setOutputKeyClass(Text.class);
 		
-		//Waitng for Job Completion
+		//Waiting for Job Completion
 		return job.waitForCompletion(true) ? 0 : 1;
 	}
   

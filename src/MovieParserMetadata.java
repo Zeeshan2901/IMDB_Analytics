@@ -28,19 +28,18 @@ public class MovieParserMetadata {
 		BufferedReader in = null;
 		try {
 			in = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-			//MovieParser parser = new MovieParser();
+			MovieParser parser = new MovieParser();
 			String line;
 			while ((line = in.readLine()) != null) {
-				String columns[]= line.split("\t");
+				/*String columns[]= line.split("\t");
 				String str[]= {columns[1],columns[2],columns[3]};
-				if (!columns[2].contentEquals("\\N"))
-					movieMap.put(columns[0],str);
+				movieMap.put(columns[0],str);*/
 				
-				/*if (parser.isParseable(line)) {
-					parser.parse(line);
-					String str[]= {parser.getGenre(), parser.getTitle(), Integer.toString(parser.getreleaseYear())};
+				if (parser.isParseable(line)) {
+					parser=parser.parse(line);
+					String str[]= {parser.getTitle(), parser.getreleaseYear(), parser.getGenre()};
 					movieMap.put(parser.getId(),str);
-				}*/
+				}
 			}
 		} finally {
 		IOUtils.closeStream(in);

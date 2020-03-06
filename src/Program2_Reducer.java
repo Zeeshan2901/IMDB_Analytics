@@ -52,7 +52,7 @@ public class Program2_Reducer extends Reducer<Text, Text, Text, Text>{
 			}
 		}
 		
-		// Iterating through all the movies and filtering for year >2010 and genre = western
+		// Iterating through all the movies and checking if same movie has records for same person as actor/actress and director
 		for (int i=0 ; i< movieId.size() && i < category.size(); i++ ){
 			String id = movieId.get(i);
 			String categ = category.get(i);
@@ -64,6 +64,8 @@ public class Program2_Reducer extends Reducer<Text, Text, Text, Text>{
 								(categ.toLowerCase().contains("actress") && category.get(j).toLowerCase().contains("director")) || 
 								(categ.toLowerCase().contains("director") && category.get(j).toLowerCase().contains("actress")))
 							context.write( new Text(name), new Text (metadata.getTitle(id) ));
+						//output from reducer
+						//Director-name		 Movie-title
 					}
 				}		
 		}
